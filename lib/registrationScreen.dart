@@ -3,20 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter/services.dart';
-import 'loginScreen.dart';
+import 'loginscreen.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:toast/toast.dart';
 import 'package:http/http.dart' as http;
 import 'package:progress_dialog/progress_dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 String pathAsset = 'assets/images/profile.png';
-String urlUpload = 'http://githubbers.com/haris/mobile_programming/project/php/register_user.php';
+String urlUpload = "http://githubbers.com/haris/mobile_programming/project/php/register_user.php";
 File _image;
 final TextEditingController _namecontroller = TextEditingController();
 final TextEditingController _emcontroller = TextEditingController();
 final TextEditingController _passcontroller = TextEditingController();
 final TextEditingController _phcontroller = TextEditingController();
-String _name, _email, _password, _phone;
+final TextEditingController _radiuscontroller = TextEditingController();
+String _name, _email, _password, _phone, _radius;
 
 class RegisterScreen extends StatefulWidget {
   @override
@@ -32,17 +34,19 @@ class _RegisterUserState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.deepPurple));
     return WillPopScope(
       onWillPop: _onBackPressAppBar,
       child: Scaffold(
         resizeToAvoidBottomPadding: false,
         appBar: AppBar(
+          backgroundColor: Colors.deepPurple,
           title: Text('New User Registration'),
-          elevation: 30,
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 100),
             child: RegisterWidget(),
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -82,21 +86,19 @@ class RegisterWidgetState extends State<RegisterWidget> {
     return Column(
       children: <Widget>[
         GestureDetector(
-          onTap: _choose,
-          child: Container(
-            width: 200,
-            height: 200,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                image: _image == null
-                    ? AssetImage(pathAsset)
-                    : FileImage(_image),
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-        ),
+            onTap: _choose,
+            child: Container(
+              width: 150,
+              height: 150,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: _image == null
+                        ? AssetImage(pathAsset)
+                        : FileImage(_image),
+                    fit: BoxFit.fill,
+                  )),
+            )),
         Text('Click on image above to take profile picture'),
         TextField(
             controller: _emcontroller,
@@ -123,6 +125,11 @@ class RegisterWidgetState extends State<RegisterWidget> {
             keyboardType: TextInputType.phone,
             decoration:
             InputDecoration(labelText: 'Phone', icon: Icon(Icons.phone))),
+        TextField(
+            controller: _radiuscontroller,
+            keyboardType: TextInputType.number,
+            decoration: InputDecoration(
+                labelText: 'Radius', icon: Icon(Icons.blur_circular))),
         SizedBox(
           height: 10,
         ),
@@ -132,7 +139,7 @@ class RegisterWidgetState extends State<RegisterWidget> {
           minWidth: 300,
           height: 50,
           child: Text('Register'),
-          color: Color.fromRGBO(168, 79, 145, 1),
+          color: Colors.deepPurple,
           textColor: Colors.white,
           elevation: 15,
           onPressed: _onRegister,
@@ -149,8 +156,8 @@ class RegisterWidgetState extends State<RegisterWidget> {
 
   void _choose() async {
     _image = await ImagePicker.pickImage(source: ImageSource.camera);
+//    _image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() {});
-    //_image = await ImagePicker.pickImage(source: ImageSource.gallery);
   }
 
   void _onRegister() {
@@ -171,11 +178,13 @@ class RegisterWidgetState extends State<RegisterWidget> {
     _email = _emcontroller.text;
     _password = _passcontroller.text;
     _phone = _phcontroller.text;
+    _radius = _radiuscontroller.text;
 
     if ((_isEmailValid(_email)) &&
         (_password.length > 5) &&
         (_image != null) &&
-        (_phone.length > 5)) {
+        (_phone.length > 5) &&
+        (int.parse(_radius) < 30)) {
       ProgressDialog pr = new ProgressDialog(context,
           type: ProgressDialogType.Normal, isDismissible: false);
       pr.style(message: "Registration in progress");
@@ -183,29 +192,33 @@ class RegisterWidgetState extends State<RegisterWidget> {
 
       String base64Image = base64Encode(_image.readAsBytesSync());
       http.post(urlUpload, body: {
+        "encoded_string": base64Image,
         "name": _name,
         "email": _email,
         "password": _password,
         "phone": _phone,
-        "encoded_string": base64Image
+        "radius": _radius,
       }).then((res) {
         print(res.statusCode);
-        Toast.show(res.body, context,
-            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-        _image = null;
-        _namecontroller.text = '';
-        _emcontroller.text = '';
-        _phcontroller.text = '';
-        _passcontroller.text = '';
-        pr.dismiss();
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+        if (res.body == "success") {
+          Toast.show(res.body, context,
+              duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+          _image = null;
+          savepref(_email, _password);
+          _namecontroller.text = '';
+          _emcontroller.text = '';
+          _phcontroller.text = '';
+          _passcontroller.text = '';
+          _radiuscontroller.text = '';
+          pr.dismiss();
+          Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => LoginPage()));
+        }
       }).catchError((err) {
         print(err);
       });
-    } else if (_image == null) {
-      Toast.show("Please update your profile picture", context,
-          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
     } else {
       Toast.show("Check your registration information", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -214,5 +227,17 @@ class RegisterWidgetState extends State<RegisterWidget> {
 
   bool _isEmailValid(String email) {
     return RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email);
+  }
+
+  void savepref(String email, String pass) async {
+    print('Inside savepref');
+    _email = _emcontroller.text;
+    _password = _passcontroller.text;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //true save pref
+    await prefs.setString('email', email);
+    await prefs.setString('pass', pass);
+    print('Save pref $_email');
+    print('Save pref $_password');
   }
 }

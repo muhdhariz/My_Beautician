@@ -1,4 +1,4 @@
-# my_beautician
+# MyBeautician
 
 A new Flutter project.
 
