@@ -61,7 +61,6 @@ class _ProgressIndicatorState extends State<ProgressIndicator>
       ..addListener(() {
         setState(() {
           if (animation.value > 0.99) {
-            //print('Sucess Login');
             loadpref(this.context);
           }
         });
