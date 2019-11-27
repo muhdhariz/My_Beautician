@@ -1,17 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'job.dart';
-import 'jobdetail.dart';
-import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter/services.dart';
-import 'user.dart';
+import 'package:http/http.dart' as http;
 import 'package:progress_dialog/progress_dialog.dart';
 
 import 'SlideRightRoute.dart';
-import 'enterexit.dart';
+import 'job.dart';
+import 'jobdetail.dart';
+import 'user.dart';
 
 double perpage = 1;
 
@@ -54,7 +54,7 @@ class _TabScreenState extends State<TabScreen> {
                 await refreshList();
               },
               child: ListView.builder(
-                  //Step 6: Count the data
+                //Step 6: Count the data
                   itemCount: data == null ? 1 : data.length + 1,
                   itemBuilder: (context, index) {
                     if (index == 0) {
@@ -87,7 +87,7 @@ class _TabScreenState extends State<TabScreen> {
                                         padding: EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceEvenly,
                                           children: <Widget>[
                                             Row(
                                               children: <Widget>[
@@ -100,11 +100,11 @@ class _TabScreenState extends State<TabScreen> {
                                                 Flexible(
                                                   child: Text(
                                                     widget.user.name
-                                                            .toUpperCase() ??
+                                                        .toUpperCase() ??
                                                         "Not registered",
                                                     style: TextStyle(
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -296,7 +296,7 @@ class _TabScreenState extends State<TabScreen> {
 
       setState(() {
         _currentAddress =
-            "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
+        "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
         init(); //load data from database into list array 'data'
       });
     } catch (e) {
@@ -305,7 +305,8 @@ class _TabScreenState extends State<TabScreen> {
   }
 
   Future<String> makeRequest() async {
-    String urlLoadJobs = "http://slumberjer.com/myhelper/php/load_jobs.php";
+    String urlLoadJobs =
+        "http://githubbers.com/haris/mobile_programming/project/php/load_jobs.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Loading Jobs");
@@ -342,8 +343,7 @@ class _TabScreenState extends State<TabScreen> {
     return null;
   }
 
-  void _onJobDetail(
-      String jobid,
+  void _onJobDetail(String jobid,
       String jobprice,
       String jobdesc,
       String jobowner,

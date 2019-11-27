@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'mainscreen.dart';
 import 'user.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 String _email, _password;
-String urlLogin = "http://githubbers.com/haris/mobile_programming/project/php/login_user.php";
+String urlLogin =
+    "http://githubbers.com/haris/mobile_programming/project/php/login_user.php";
 
 void main() => runApp(SplashScreen());
 
@@ -78,9 +80,7 @@ class _ProgressIndicatorState extends State<ProgressIndicator>
   Widget build(BuildContext context) {
     return new Center(
         child: new Container(
-          child: CircularProgressIndicator(
-
-          ),
+          child: CircularProgressIndicator(),
         ));
   }
 }

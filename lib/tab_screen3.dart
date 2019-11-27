@@ -1,12 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter/services.dart';
-import 'user.dart';
+import 'package:http/http.dart' as http;
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:toast/toast.dart';
+
+import 'user.dart';
 
 double perpage = 1;
 
@@ -67,7 +69,7 @@ class _TabScreen3State extends State<TabScreen3> {
                                     height: 20,
                                   ),
                                   Center(
-                                    child: Text("MyHelper",
+                                    child: Text("MyBeautician",
                                         style: TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
@@ -205,7 +207,7 @@ class _TabScreen3State extends State<TabScreen3> {
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(
-                                                "http://slumberjer.com/myhelper/images/${data[index]['jobimage']}.jpg")))),
+                                                "http://githubbers.com/haris/mobile_programming/project/images/${data[index]['jobimage']}.jpg")))),
                                 Expanded(
                                   child: Container(
                                     child: Column(
@@ -285,7 +287,7 @@ class _TabScreen3State extends State<TabScreen3> {
 
   Future<String> makeRequest() async {
     String urlLoadJobs =
-        "http://slumberjer.com/myhelper/php/load_accepted_jobs.php";
+        "http://githubbers.com/haris/mobile_programming/project/php/load_accepted_jobs.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Loading All Accepted Jobs");

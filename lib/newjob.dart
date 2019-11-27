@@ -1,20 +1,24 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
-import 'mainscreen.dart';
-import 'package:image_picker/image_picker.dart';
-import 'user.dart';
-import 'package:toast/toast.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:flutter/services.dart';
-import 'package:progress_dialog/progress_dialog.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:place_picker/place_picker.dart';
+import 'package:progress_dialog/progress_dialog.dart';
+import 'package:toast/toast.dart';
+
+import 'mainscreen.dart';
+import 'user.dart';
 
 File _image;
-String pathAsset = 'assets/images/sliverwork.jpg';
-String urlUpload = "http://slumberjer.com/myhelper/php/upload_job.php";
-String urlgetuser = "http://slumberjer.com/myhelper/php/get_user.php";
+String pathAsset = 'assets/images/background.jpg';
+String urlUpload =
+    "http://githubbers.com/haris/mobile_programming/project/php/upload_job.php";
+String urlgetuser =
+    "http://githubbers.com/haris/mobile_programming/project/php/get_user.php";
 
 final TextEditingController _jobcontroller = TextEditingController();
 final TextEditingController _desccontroller = TextEditingController();

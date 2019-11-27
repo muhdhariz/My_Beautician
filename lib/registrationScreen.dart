@@ -1,17 +1,20 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:flutter/services.dart';
-import 'loginscreen.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:toast/toast.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
+
+import 'loginscreen.dart';
 
 String pathAsset = 'assets/images/profile.png';
-String urlUpload = "http://githubbers.com/haris/mobile_programming/project/php/register_user.php";
+String urlUpload =
+    "http://githubbers.com/haris/mobile_programming/project/php/register_user.php";
 File _image;
 final TextEditingController _namecontroller = TextEditingController();
 final TextEditingController _emcontroller = TextEditingController();
@@ -23,6 +26,7 @@ String _name, _email, _password, _phone, _radius;
 class RegisterScreen extends StatefulWidget {
   @override
   _RegisterUserState createState() => _RegisterUserState();
+
   const RegisterScreen({Key key, File image}) : super(key: key);
 }
 
@@ -53,9 +57,7 @@ class _RegisterUserState extends State<RegisterScreen> {
                 image: AssetImage("assets/images/background.png"),
                 fit: BoxFit.fill,
                 colorFilter: new ColorFilter.mode(
-                    Colors.black.withOpacity(0.05),
-                    BlendMode.dstATop
-                ),
+                    Colors.black.withOpacity(0.05), BlendMode.dstATop),
               ),
             ),
           ),

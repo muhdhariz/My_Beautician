@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'tab_screen.dart';
 import 'tab_screen2.dart';
 import 'tab_screen3.dart';
 import 'tab_screen4.dart';
 import 'user.dart';
-import 'tab_screen.dart';
 
 class MainScreen extends StatefulWidget {
   final User user;

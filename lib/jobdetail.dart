@@ -1,13 +1,15 @@
 import 'dart:async';
-import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'user.dart';
-import 'package:toast/toast.dart';
+import 'package:http/http.dart' as http;
 import 'package:progress_dialog/progress_dialog.dart';
+import 'package:toast/toast.dart';
+
 import 'job.dart';
 import 'mainscreen.dart';
+import 'user.dart';
 
 class JobDetail extends StatefulWidget {
   final Job job;

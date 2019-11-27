@@ -1,14 +1,16 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'newjob.dart';
-import 'package:geolocator/geolocator.dart';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:http/http.dart' as http;
+import 'package:progress_dialog/progress_dialog.dart';
+import 'package:toast/toast.dart';
+
+import 'newjob.dart';
 import 'registrationscreen.dart';
 import 'user.dart';
-import 'package:toast/toast.dart';
-import 'package:progress_dialog/progress_dialog.dart';
 
 double perpage = 1;
 
@@ -59,7 +61,7 @@ class _TabScreen2State extends State<TabScreen2> {
                 await refreshList();
               },
               child: ListView.builder(
-                  //Step 6: Count the data
+                //Step 6: Count the data
                   itemCount: data == null ? 1 : data.length + 1,
                   itemBuilder: (context, index) {
                     if (index == 0) {
@@ -92,7 +94,7 @@ class _TabScreen2State extends State<TabScreen2> {
                                         padding: EdgeInsets.all(5.0),
                                         child: Column(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
+                                          MainAxisAlignment.spaceEvenly,
                                           children: <Widget>[
                                             Row(
                                               children: <Widget>[
@@ -105,11 +107,11 @@ class _TabScreen2State extends State<TabScreen2> {
                                                 Flexible(
                                                   child: Text(
                                                     widget.user.name
-                                                            .toUpperCase() ??
+                                                        .toUpperCase() ??
                                                         "Not registered",
                                                     style: TextStyle(
                                                         fontWeight:
-                                                            FontWeight.bold),
+                                                        FontWeight.bold),
                                                   ),
                                                 ),
                                               ],
@@ -218,7 +220,7 @@ class _TabScreen2State extends State<TabScreen2> {
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(
-                                                "http://slumberjer.com/myhelper/images/${data[index]['jobimage']}.jpg")))),
+                                                "http://githubbers.com/haris/mobile_programming/project/images/${data[index]['jobimage']}.jpg")))),
                                 Expanded(
                                   child: Container(
                                     child: Column(
@@ -288,7 +290,7 @@ class _TabScreen2State extends State<TabScreen2> {
 
       setState(() {
         _currentAddress =
-            "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
+        "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
         init(); //load data from database into list array 'data'
       });
     } catch (e) {
@@ -297,7 +299,8 @@ class _TabScreen2State extends State<TabScreen2> {
   }
 
   Future<String> makeRequest() async {
-    String urlLoadJobs = "http://slumberjer.com/myhelper/php/load_job_user.php";
+    String urlLoadJobs =
+        "http://githubbers.com/haris/mobile_programming/project/php/load_job_user.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Loading All Accepted Jobs");
@@ -343,8 +346,8 @@ class _TabScreen2State extends State<TabScreen2> {
           context,
           MaterialPageRoute(
               builder: (BuildContext context) => NewJob(
-                    user: widget.user,
-                  )));
+                user: widget.user,
+              )));
     } else {
       Toast.show("Please Register First to request new job", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -391,7 +394,8 @@ class _TabScreen2State extends State<TabScreen2> {
   }
 
   Future<String> deleteRequest(String jobid) async {
-    String urlLoadJobs = "http://slumberjer.com/myhelper/php/delete_job.php";
+    String urlLoadJobs =
+        "http://githubbers.com/haris/mobile_programming/project/php/delete_job.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Deleting Jobs");
@@ -446,7 +450,7 @@ class _SlideMenuState extends State<SlideMenu>
   @override
   Widget build(BuildContext context) {
     final animation = new Tween(
-            begin: const Offset(0.0, 0.0), end: const Offset(-0.2, 0.0))
+        begin: const Offset(0.0, 0.0), end: const Offset(-0.2, 0.0))
         .animate(new CurveTween(curve: Curves.decelerate).animate(_controller));
 
     return new GestureDetector(

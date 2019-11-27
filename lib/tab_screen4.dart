@@ -1,23 +1,27 @@
+import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
+
 import 'loginscreen.dart';
 import 'registrationscreen.dart';
 import 'splashscreen.dart';
 import 'user.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
-import 'package:image_picker/image_picker.dart';
 
-String urlgetuser = "http://slumberjer.com/myhelper/php/get_user.php";
+String urlgetuser =
+    "http://githubbers.com/haris/mobile_programming/project/php/get_user.php";
 String urluploadImage =
-    "http://slumberjer.com/myhelper/php/upload_imageprofile.php";
-String urlupdate = "http://slumberjer.com/myhelper/php/update_profile.php";
+    "http://githubbers.com/haris/mobile_programming/project/php/upload_imageprofile.php";
+String urlupdate =
+    "http://githubbers.com/haris/mobile_programming/project/php/update_profile.php";
 File _image;
 int number = 0;
 
@@ -54,7 +58,7 @@ class _TabScreen4State extends State<TabScreen4> {
         home: Scaffold(
           resizeToAvoidBottomPadding: false,
           body: ListView.builder(
-              //Step 6: Count the data
+            //Step 6: Count the data
               itemCount: 5,
               itemBuilder: (context, index) {
                 if (index == 0) {
@@ -89,7 +93,9 @@ class _TabScreen4State extends State<TabScreen4> {
                                         image: new DecorationImage(
                                             fit: BoxFit.cover,
                                             image: new NetworkImage(
-                                                "http://slumberjer.com/myhelper/profile/${widget.user.email}.jpg?dummy=${(number)}'")))),
+                                                "http://githubbers.com/haris/mobile_programming/project/profile/${widget
+                                                    .user
+                                                    .email}.jpg?dummy=${(number)}'")))),
                               ),
                               SizedBox(height: 5),
                               Container(
@@ -138,7 +144,7 @@ class _TabScreen4State extends State<TabScreen4> {
                                     initialRating: double.parse(
                                         widget.user.rating.toString() ?? 0.0),
                                     itemPadding:
-                                        EdgeInsets.symmetric(horizontal: 2.0),
+                                    EdgeInsets.symmetric(horizontal: 2.0),
                                     itemBuilder: (context, _) => Icon(
                                       Icons.star,
                                       color: Colors.amber,
@@ -155,8 +161,8 @@ class _TabScreen4State extends State<TabScreen4> {
                                         Icons.rounded_corner,
                                       ),
                                       Text("Job Radius " +
-                                              widget.user.radius +
-                                              "KM" ??
+                                          widget.user.radius +
+                                          "KM" ??
                                           'Job Radius 0 KM'),
                                     ],
                                   ),
@@ -175,8 +181,8 @@ class _TabScreen4State extends State<TabScreen4> {
                                       ),
                                       Flexible(
                                         child: Text("You have " +
-                                                widget.user.credit +
-                                                " Credit" ??
+                                            widget.user.credit +
+                                            " Credit" ??
                                             "You have 0 Credit"),
                                       ),
                                     ],
@@ -287,7 +293,7 @@ class _TabScreen4State extends State<TabScreen4> {
               onPressed: () async {
                 Navigator.of(context).pop();
                 _image =
-                    await ImagePicker.pickImage(source: ImageSource.camera);
+                await ImagePicker.pickImage(source: ImageSource.camera);
 
                 String base64Image = base64Encode(_image.readAsBytesSync());
                 http.post(urluploadImage, body: {
@@ -341,7 +347,7 @@ class _TabScreen4State extends State<TabScreen4> {
 
       setState(() {
         _currentAddress =
-            "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
+        "${place.name},${place.locality}, ${place.postalCode}, ${place.country}";
         //load data from database into list array 'data'
       });
     } catch (e) {

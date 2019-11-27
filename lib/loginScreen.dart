@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
+import 'package:progress_dialog/progress_dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
+
 import 'mainscreen.dart';
 import 'registrationscreen.dart';
 import 'user.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:toast/toast.dart';
-import 'package:http/http.dart' as http;
-import 'package:progress_dialog/progress_dialog.dart';
 
 String urlLogin = "http://githubbers.com/haris/mobile_programming/project/php/login_user.php";
 String urlupdate = "http://githubbers.com/haris/mobile_programming/project/php/password_reset.php";
