@@ -55,7 +55,9 @@ class _MainScreenState extends State<MainScreen> {
 
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
+            icon: Icon(
+              Icons.search,
+            ),
             title: Text("Jobs"),
           ),
           BottomNavigationBarItem(

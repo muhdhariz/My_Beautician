@@ -66,18 +66,29 @@ class _TabScreen4State extends State<TabScreen4> {
                     child: Column(
                       children: <Widget>[
                         Stack(children: <Widget>[
-                          Image.asset(
-                            "assets/images/background.png",
-                            fit: BoxFit.fitWidth,
+                          Container(
+                            height: 360,
+                            width: 450,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage(
+                                    "assets/images/background.png"),
+                                fit: BoxFit.fitWidth,
+                                colorFilter: new ColorFilter.mode(
+                                    Colors.black.withOpacity(0.10),
+                                    BlendMode.dstATop),
+                              ),
+                            ),
                           ),
                           Column(
                             children: <Widget>[
+                              SizedBox(height: 10),
                               Center(
-                                child: Text("MyHelper",
+                                child: Text("MyBeautician",
                                     style: TextStyle(
                                         fontSize: 24,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.white)),
+                                        color: Colors.purple)),
                               ),
                               SizedBox(
                                 height: 5,

@@ -45,7 +45,7 @@ class _NewJobState extends State<NewJob> {
           //resizeToAvoidBottomPadding: false,
           appBar: AppBar(
             title: Text('REQUEST HELP'),
-            backgroundColor: Colors.deepOrange,
+            backgroundColor: Colors.deepPurple,
           ),
           body: SingleChildScrollView(
             child: Container(
@@ -159,7 +159,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
           minWidth: 300,
           height: 50,
           child: Text('Request New Job'),
-          color: Colors.deepOrangeAccent,
+          color: Colors.deepPurpleAccent,
           textColor: Colors.white,
           elevation: 15,
           onPressed: _onAddJob,

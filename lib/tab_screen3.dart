@@ -59,21 +59,29 @@ class _TabScreen3State extends State<TabScreen3> {
                         child: Column(
                           children: <Widget>[
                             Stack(children: <Widget>[
-                              Image.asset(
-                                "assets/images/background.png",
-                                fit: BoxFit.fitWidth,
+                              Container(
+                                height: 205,
+                                width: 450,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                        "assets/images/background.png"),
+                                    fit: BoxFit.fitWidth,
+                                    colorFilter: new ColorFilter.mode(
+                                        Colors.black.withOpacity(0.10),
+                                        BlendMode.dstATop),
+                                  ),
+                                ),
                               ),
                               Column(
                                 children: <Widget>[
-                                  SizedBox(
-                                    height: 20,
-                                  ),
+                                  SizedBox(height: 10),
                                   Center(
                                     child: Text("MyBeautician",
                                         style: TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.white)),
+                                            color: Colors.purple)),
                                   ),
                                   SizedBox(height: 10),
                                   Container(
@@ -158,9 +166,6 @@ class _TabScreen3State extends State<TabScreen3> {
                                 ],
                               ),
                             ]),
-                            SizedBox(
-                              height: 4,
-                            ),
                             Container(
                               color: Colors.deepPurple,
                               child: Center(
@@ -207,7 +212,7 @@ class _TabScreen3State extends State<TabScreen3> {
                                         image: DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(
-                                                "http://githubbers.com/haris/mobile_programming/project/images/${data[index]['jobimage']}.jpg")))),
+                                                "http://githubbers.com/haris/mobile_programming/project/image/${data[index]['jobimage']}.jpg")))),
                                 Expanded(
                                   child: Container(
                                     child: Column(

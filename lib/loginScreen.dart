@@ -176,7 +176,6 @@ class _LoginPageState extends State<LoginPage> {
     print('Forgot');
     TextEditingController passController = TextEditingController();
     // flutter defined function
-//    print(widget.user.name);
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -204,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                     print('in success');
                     setState(() {
                       if (dres[0] == "success") {
-                        Toast.show("Success", context,
+                        Toast.show("success", context,
                             duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
                         saveprefPass(passController.text);
                         Navigator.of(context).pop();

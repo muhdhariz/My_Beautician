@@ -50,12 +50,12 @@ class _RegisterUserState extends State<RegisterScreen> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.fromLTRB(40, 20, 40, 100),
+            padding: EdgeInsets.fromLTRB(40, 20, 40, 155),
             child: RegisterWidget(),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.fill,
+                fit: BoxFit.fitHeight,
                 colorFilter: new ColorFilter.mode(
                     Colors.black.withOpacity(0.05), BlendMode.dstATop),
               ),

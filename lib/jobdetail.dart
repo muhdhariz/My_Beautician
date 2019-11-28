@@ -92,7 +92,8 @@ class _DetailInterfaceState extends State<DetailInterface> {
           width: 280,
           height: 200,
           child: Image.network(
-              'http://slumberjer.com/myhelper/images/${widget.job.jobimage}.jpg',
+              'http://githubbers.com/haris/mobile_programming/project/image/${widget
+                  .job.jobimage}.jpg',
               fit: BoxFit.fill),
         ),
         SizedBox(
@@ -218,7 +219,7 @@ class _DetailInterfaceState extends State<DetailInterface> {
   }
 
   Future<String> acceptRequest() async {
-    String urlLoadJobs = "http://slumberjer.com/myhelper/php/accept_job.php";
+    String urlLoadJobs = "http://githubbers.com/haris/mobile_programming/project/php/accept_job.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
     pr.style(message: "Accepting Job");
