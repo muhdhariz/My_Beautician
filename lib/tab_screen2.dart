@@ -309,7 +309,7 @@ class _TabScreen2State extends State<TabScreen2> {
         "http://githubbers.com/haris/mobile_programming/project/php/load_job_user.php";
     ProgressDialog pr = new ProgressDialog(context,
         type: ProgressDialogType.Normal, isDismissible: false);
-    pr.style(message: "Loading All Accepted Jobs");
+    pr.style(message: "Loading All Posted Jobs");
     pr.show();
     http.post(urlLoadJobs, body: {
       "email": widget.user.email ?? "notavail",

@@ -14,7 +14,7 @@ import 'mainscreen.dart';
 import 'user.dart';
 
 File _image;
-String pathAsset = 'assets/images/background.jpg';
+String pathAsset = 'assets/images/profile.png';
 String urlUpload =
     "http://githubbers.com/haris/mobile_programming/project/php/upload_job.php";
 String urlgetuser =
@@ -93,7 +93,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
         GestureDetector(
             onTap: _choose,
             child: Container(
-              width: 350,
+              width: 200,
               height: 200,
               decoration: BoxDecoration(
                   image: DecorationImage(
