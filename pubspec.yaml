@@ -32,6 +32,12 @@ dependencies:
   geolocator: ^5.1.5
   place_picker: ^0.9.9
   flutter_rating_bar: ^3.0.0
+  flutter_slidable: "^0.5.4"
+  dropdownfield: ^1.0.3
+  webview_flutter: ^0.3.14+1
+  url_launcher: ^4.0.2
+  intl: ^0.16.0
+  random_string: ^1.1.0
 
 
 dev_dependencies:

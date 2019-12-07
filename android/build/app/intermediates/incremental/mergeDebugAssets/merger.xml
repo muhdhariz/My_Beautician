@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3">
+    <dataSet config=":google_api_availability"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\google_api_availability\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":geolocator"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\geolocator\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":google_maps_flutter"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\google_maps_flutter\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":image_picker"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\image_picker\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":location_permissions"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\location_permissions\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":shared_preferences"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\shared_preferences\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config=":location"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\location\intermediates\library_assets\debug\out"/>
+    </dataSet>
+    <dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\app\src\main\assets"/>
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\build\app\intermediates\shader_assets\debug\compileDebugShaders\out"/>
+    </dataSet>
+    <dataSet config="debug"
+             ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~">
+        <source path="C:\flutterProject\mobileProgramming\my_beautician\android\app\src\debug\assets"/>
+    </dataSet>
+</merger>

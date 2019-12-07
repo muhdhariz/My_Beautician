@@ -1,0 +1,17 @@
+{
+  "packages/cupertino_icons/assets/CupertinoIcons.ttf": [
+    "packages/cupertino_icons/assets/CupertinoIcons.ttf"
+  ],
+  "assets/images/background.png": [
+    "assets/images/background.png"
+  ],
+  "packages/progress_dialog/assets/double_ring_loading_io.gif": [
+    "packages/progress_dialog/assets/double_ring_loading_io.gif"
+  ],
+  "assets/images/logo.png": [
+    "assets/images/logo.png"
+  ],
+  "assets/images/profile.png": [
+    "assets/images/profile.png"
+  ]
+}

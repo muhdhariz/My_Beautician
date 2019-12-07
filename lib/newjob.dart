@@ -20,7 +20,7 @@ String urlUpload =
 String urlgetuser =
     "http://githubbers.com/haris/mobile_programming/project/php/get_user.php";
 
-final TextEditingController _jobcontroller = TextEditingController();
+TextEditingController _jobcontroller = TextEditingController();
 final TextEditingController _desccontroller = TextEditingController();
 final TextEditingController _pricecontroller = TextEditingController();
 final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
@@ -103,6 +103,45 @@ class _CreateNewJobState extends State<CreateNewJob> {
               )),
             )),
         Text('Click on image above to take job picture'),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: <Widget>[
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: _changeJob),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.fastfood),
+                  onPressed: _changeFood),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+              new IconButton(
+                  iconSize: 40,
+                  icon: new Icon(Icons.directions_bike),
+                  onPressed: null),
+            ],
+          ),
+        ),
         TextField(
             controller: _jobcontroller,
             keyboardType: TextInputType.emailAddress,
@@ -159,7 +198,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
           minWidth: 300,
           height: 50,
           child: Text('Request New Job'),
-          color: Colors.deepPurpleAccent,
+          color: Colors.deepOrangeAccent,
           textColor: Colors.white,
           elevation: 15,
           onPressed: _onAddJob,
@@ -291,10 +330,18 @@ class _CreateNewJobState extends State<CreateNewJob> {
   void _loadmap() async {
     LocationResult result = await Navigator.of(context).push(MaterialPageRoute(
         builder: (context) =>
-            PlacePicker("AIzaSyAvIHhXiQ7TxWE2L7WY_qP2WpBDrR7TWHk")));
+            PlacePicker("AIzaSyCRL31yc1l53J9xrq4CNaazHH0e4RSMXdo")));
 
     // Handle the result in your way
     print("MAP SHOW:");
     print(result);
+  }
+
+  void _changeJob() {
+    _jobcontroller.text = "Runner";
+  }
+
+  void _changeFood() {
+    _jobcontroller.text = "Order Food";
   }
 }
