@@ -1,10 +1,11 @@
 import 'dart:async';
-import 'user.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:webview_flutter/webview_flutter.dart';
 
 import 'mainscreen.dart';
+import 'user.dart';
 
 class PaymentScreen extends StatefulWidget {
   final User user;
@@ -33,7 +34,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 Expanded(
                   child: WebView(
                     initialUrl:
-                        'http://slumberjer.com/myhelper/php/payment.php?email=' +
+                    'http://githubbers.com/haris/mobile_programming/project/php/payment.php?email=' +
                             widget.user.email +
                             '&mobile=' +
                             widget.user.phone +
@@ -55,7 +56,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   Future<bool> _onBackPressAppBar() async {
     print("onbackpress payment");
-    String urlgetuser = "http://slumberjer.com/myhelper/php/get_user.php";
+    String urlgetuser =
+        "http://githubbers.com/haris/mobile_programming/project/php/get_user.php";
 
     http.post(urlgetuser, body: {
       "email": widget.user.email,

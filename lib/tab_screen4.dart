@@ -779,12 +779,15 @@ class _TabScreen4State extends State<TabScreen4> {
                 Navigator.of(context).pop();
                 var now = new DateTime.now();
                 var formatter = new DateFormat('ddMMyyyyhhmmss-');
-                String formatted = formatter.format(now) +
-                    randomAlphaNumeric(10);
+                String formatted =
+                    formatter.format(now) + randomAlphaNumeric(10);
                 print(formatted);
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) =>
-                        PaymentScreen(user: widget.user,
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            PaymentScreen(
+                                user: widget.user,
                             orderid: formatted,
                             val: _value)));
               },
@@ -839,5 +842,3 @@ class _DropdownExampleState extends State<DropdownExample> {
     );
   }
 }
-
-
