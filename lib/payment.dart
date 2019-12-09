@@ -27,7 +27,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         child: Scaffold(
             appBar: AppBar(
               title: Text('PAYMENT FOR CREDIT'),
-              backgroundColor: Colors.deepOrange,
+              backgroundColor: Colors.deepPurple,
             ),
             body: Column(
               children: <Widget>[
