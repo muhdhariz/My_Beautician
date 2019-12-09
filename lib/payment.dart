@@ -26,7 +26,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
         onWillPop: _onBackPressAppBar,
         child: Scaffold(
             appBar: AppBar(
-              title: Text('PAYMENT'),
+              title: Text('PAYMENT FOR CREDIT'),
               backgroundColor: Colors.deepOrange,
             ),
             body: Column(
