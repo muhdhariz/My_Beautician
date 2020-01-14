@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'tab_screen.dart';
 import 'tab_screen2.dart';
 import 'tab_screen3.dart';
-import 'tab_screen4.dart';
 import 'user.dart';
 
 class MainScreen extends StatefulWidget {
@@ -28,7 +27,6 @@ class _MainScreenState extends State<MainScreen> {
       TabScreen(user: widget.user),
       TabScreen2(user: widget.user),
       TabScreen3(user: widget.user),
-      TabScreen4(user: widget.user),
     ];
   }
 
@@ -54,12 +52,6 @@ class _MainScreenState extends State<MainScreen> {
         type: BottomNavigationBarType.fixed,
 
         items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-            ),
-            title: Text("Jobs"),
-          ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.list,

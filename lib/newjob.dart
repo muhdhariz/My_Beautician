@@ -103,45 +103,6 @@ class _CreateNewJobState extends State<CreateNewJob> {
               )),
             )),
         Text('Click on image above to take job picture'),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: <Widget>[
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: _changeJob),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.fastfood),
-                  onPressed: _changeFood),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-              new IconButton(
-                  iconSize: 40,
-                  icon: new Icon(Icons.directions_bike),
-                  onPressed: null),
-            ],
-          ),
-        ),
         TextField(
             controller: _jobcontroller,
             keyboardType: TextInputType.emailAddress,
@@ -198,7 +159,7 @@ class _CreateNewJobState extends State<CreateNewJob> {
           minWidth: 300,
           height: 50,
           child: Text('Request New Job'),
-          color: Colors.deepOrangeAccent,
+          color: Colors.deepPurpleAccent,
           textColor: Colors.white,
           elevation: 15,
           onPressed: _onAddJob,
