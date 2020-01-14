@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
           package="com.example.my_beautician">
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -13,7 +13,7 @@
             android:name="io.flutter.app.FlutterApplication"
             android:label="my_beautician"
             android:usesCleartextTraffic="true"
-            android:icon="@mipmap/ic_launcher">
+            android:icon="@mipmap/launcher_icon">
 
         <meta-data android:name="com.google.android.geo.API_KEY"
                    android:value="AIzaSyCRL31yc1l53J9xrq4CNaazHH0e4RSMXdo"/>
